@@ -11,17 +11,14 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
-}
-
-img {
+  gap: 10px;
   width: 100%;
 }
 
 .container {
   width: 100%;
   height: var(--height);
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
 
 .carrossel {
@@ -42,11 +39,27 @@ img {
 
 .container.reverse .item {
   animation: reverseRun 10s linear infinite;
-  <!--animation-delay: calc(10 / var(--quantity) * var(--delay));-->
+ 
 }
 
 .item img {
   width: 100%;
+}
+
+.container:hover .item {
+  animation-play-state: paused;
+  filter: grayscale(1);
+}
+
+.container .item:hover {
+  filter: grayscale(0);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
 
 @keyframes autoRun {
